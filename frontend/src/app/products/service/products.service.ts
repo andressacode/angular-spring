@@ -1,7 +1,7 @@
 import { Product } from './../model/product';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, Observable, tap } from 'rxjs';
+import { delay, first, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,7 @@ export class ProductsService {
   findAll(): Observable<Product[]>{
     return this.httpClient.get<Product[]>(this.API_URL)
     .pipe(
+      delay(290),
       first(),
       tap(p => console.log(p))
     )
@@ -21,7 +22,9 @@ export class ProductsService {
 
   findById() {}
 
-  create() {}
+  create(product: Product) {
+    return this.httpClient.post(this.API_URL, product);
+  }
 
   delete() {}
 
