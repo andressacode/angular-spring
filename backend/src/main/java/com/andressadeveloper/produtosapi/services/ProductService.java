@@ -1,5 +1,7 @@
 package com.andressadeveloper.produtosapi.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,7 +28,25 @@ public class ProductService {
 	@Transactional(readOnly = true)
 	public ProductDTO findById(Long id) {
 		Product result = productRepository.findById(id).get();
-		ProductDTO productDto = new ProductDTO(result); 
+		ProductDTO productDto = new ProductDTO(result);
 		return productDto;
+	}
+
+	public Product create(Product entity) {
+		return productRepository.save(entity);
+	}
+
+	public Optional<Product> update(Long id, Product entity) {
+		return productRepository.findById(id).map(record -> {
+			productRepository.saveAndFlush(entity);
+			return record;
+		});
+	}
+
+	public Boolean delete(Long id) {
+		return productRepository.findById(id).map(record -> {
+			productRepository.deleteById(id);
+			return true;
+		}).orElse(false);
 	}
 }
