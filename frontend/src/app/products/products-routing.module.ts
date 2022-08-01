@@ -1,3 +1,4 @@
+import { ProductsTestsComponent } from './products-tests/products-tests.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'new',
     component: ProductFormComponent,
+  },
+  {
+    path: 'tests',
+    component: ProductsTestsComponent,
   },
 ];
 

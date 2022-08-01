@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./product-form.component.scss'],
 })
 export class ProductFormComponent implements OnInit {
+
   form: FormGroup;
 
   constructor(
@@ -43,4 +44,6 @@ export class ProductFormComponent implements OnInit {
     this.snackBar.open('Salvo!', '', { duration: 1000 });
     this.location.back();
   }
+
+
 }

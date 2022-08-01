@@ -26,7 +26,9 @@ export class ProductsService {
     return this.httpClient.post(this.API_URL, product);
   }
 
-  delete() {}
+  delete(id: number) {
+    return this.httpClient.delete(this.API_URL+"/"+id.toString());
+  }
 
   edit() {}
 }

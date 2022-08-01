@@ -12,9 +12,10 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ProductsTestsComponent } from './products-tests/products-tests.component';
 
 @NgModule({
-  declarations: [ProductsComponent, ProductFormComponent],
+  declarations: [ProductsComponent, ProductFormComponent, ProductsTestsComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
